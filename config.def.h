@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "main";    /* Polybar tray instance name */
-static const char *altbarcmd        = "XDG_CONFIG_HOME/polybar/blocks/launch.sh"; /* Alternate bar launch command */
+static const char *altbarcmd        = "$XDG_CONFIG_HOME/polybar/blocks/launch.sh"; /* Alternate bar launch command */
 static const char *fonts[]          = { "FiraCode Nerd Font Mono:pixelsize=20" };
 static const char dmenufont[]       = "Jetbrains Mono:size=5";
 static const char col_gray1[]       = "#420709";
