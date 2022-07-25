@@ -11,7 +11,7 @@ static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "main";    /* Polybar tray instance name */
 static const char *altbarcmd        = "XDG_CONFIG_HOME/polybar/blocks/launch.sh"; /* Alternate bar launch command */
 static const char *fonts[]          = { "FiraCode Nerd Font Mono:pixelsize=20" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "Jetbrains Mono:size=5";
 static const char col_gray1[]       = "#420709";
 static const char col_gray4[]       = "#190707";
 static const char col_gray3[]       = "#a51201";
@@ -91,7 +91,6 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
 
 /* #include <X11/XF86keysym.h> INCLUDE IF YOU NEED BRIGHTNESS ETC CONTROLS */
 #include "focusurgent.c"
@@ -112,7 +111,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_slash,  killunsel,      {0} },
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY,                       XK_backslash,togglefloating,{0} },
 	{ MODKEY,                       XK_z,      togglefullscr,  {0} },
@@ -152,7 +151,6 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
